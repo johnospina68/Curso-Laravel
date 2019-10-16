@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//Route::get('admin/sistema/permiso', 'PermisoController@index')->name('permiso');
+
+Route::get('permiso/{nombre}', function ($nombre) {
+    return $nombre;
+})->where('nombre', '[0-9]+')->name('permiso');
