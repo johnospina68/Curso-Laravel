@@ -15,3 +15,8 @@
 //Route::get('admin/sistema/permiso', 'PermisoController@index')->name('permiso');
 
 Route::get('/', 'InicioController@index');
+//Route::get('admin/permiso', 'Admin/PermisoController@index')->name('permiso'); //Para cachear las rutas
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::get('permiso', 'PermisoController@index')->name('permiso');
+    Route::get('permiso/crear', 'PermisoController@crear')->name('crear_permiso');
+});
