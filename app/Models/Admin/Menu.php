@@ -11,6 +11,11 @@ class Menu extends Model
     protected $guarded = ['id']; //Cuales van hacer los campos que LARAVEL no va a dejar editar
     public $timestamps = false; // Campos en la base de datos que no se usan (create_up, update_up)
 
+    public function roles()
+    {
+        return $this->belongsToMany(Rol::class, 'menu_rol'); //Relacion muchos a muchos ER
+    }
+
     public function getHijos($padres, $line)
     {
         $children = [];
